@@ -36,9 +36,9 @@ export class SalaFormComponent {
 
   save(): void{
     const sala = this.formSala.getRawValue() as Sala;
-    this.salaService.salvarSala(sala).subscribe({
-      next: () => this.route.apiUr(['/salas']),
-      error: (err) => console.error('Erro ao salvar sala', err)
-    });
+    this.salaService.salvarSala(sala.id).subscribe({
+      next: () => this.route.navigate(['/salas']),
+      error: (err) => console.error("Erro ao salvar", err)
+    })
   }
 }
